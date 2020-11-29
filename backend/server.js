@@ -19,7 +19,8 @@ let mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/danitour', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    useCreateIndex: true, 
+    useFindAndModify: false
 })
 
 // importa os controllers

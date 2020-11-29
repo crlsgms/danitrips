@@ -43,8 +43,9 @@ let clienteController = {
         })
     },
     //updateOne ou findOneAndUpdate pra não perder os outros campos
+    // não consegui implementar, estudar colas.md
     atualiza: async (req, res)=>{
-        Cliente.updateOne({_id: req.params.id},{
+        Cliente.findOneAndUpdate({_id: req.params.id},{
             nome: req.body.nome,
             rg: req.body.rg,
             rua: req.body.rua,
