@@ -17,14 +17,14 @@ let viagemController = {
     consulta: async (req, res) => {
         if (req.params.id == undefined) {
             Viagem.find()
-                .populate('Cliente')
+                .populate('cliente')
                 .exec()
                 .then(viagens => {
                     res.json(viagens) // retorna todas as viagens
                 })
         } else {
             Viagem.findOne({ _id: req.params.id }) //retorna o id procurado, se presente no GET
-                .populate('Cliente')
+                .populate('cliente')
                 .exec()
                 .then(viagem => {
                     res.json(viagem)
@@ -39,14 +39,8 @@ let viagemController = {
                 res.json(resultado)
             })
     },
+
     atualiza: async (req, res) => {
-        // try {
-        //     const trip = { ...this.state.trip }
-        //     trip[e.target.name] = e.target.value
-        //     this.setState({ trip })
-        // } catch (error) {
-        //     console.log(this.state)
-        // }
         Viagem.updateOne({ _id: req.params.id }, {
             cidade: req.body.cidade,
             data: req.body.data,
