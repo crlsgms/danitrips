@@ -1,0 +1,136 @@
+# clientes
+{
+    "enderecos": [
+        {
+            "logradouro": "Rua Maceió",
+            "numero": "21",
+            "bairro": "Jardim Leporace",
+            "complemento": "Rotatória Amin Kalil",
+            "cep": "12548-864",
+            "cidade": "Ribeirão Preto",
+            "estado": "SP"
+        },
+        {
+            "logradouro": "Avenida Presidente Vargas",
+            "numero": "766",
+            "bairro": "Centro",
+            "cep": "14405-800",
+            "cidade": "Franca",
+            "estado": "SP"
+        }
+    ],
+    "telefones": [
+        {
+            "numero": "(16)98451-2222",
+            "tipo": "Celular"
+        },
+        {
+            "numero": "(16)3701-5678",
+            "tipo": "Fixo"
+        }
+    ],
+    "_id": "5fbea851ef237196bcadb61b",
+    "nome": "José das Couves",
+    "cpf": 12355544444,
+    "rg": "888.444-77"
+}
+
+{
+    "enderecos": [
+        {
+            "logradouro": "Rua Major Sertório",
+            "numero": "1332",
+            "bairro": "Jardim Luiza",
+            "cep": "12548-864",
+            "cidade": "Barretps",
+            "estado": "SP"
+        },
+        {
+            "logradouro": "Rua Padre Anchieta",
+            "numero": "666",
+            "bairro": "Centro",
+            "cep": "14405-800",
+            "cidade": "Franca",
+            "estado": "SP"
+        }
+    ],
+    "telefones": [
+        {
+            "numero": "(16)99848-7415",
+            "tipo": "Celular"
+        },
+        {
+            "numero": "(16)3721-8454",
+            "tipo": "Fixo"
+        }
+    ],
+    "_id": "5fbea959bf056c977b4023ab",
+    "nome": "Maria Siqueira Campos",
+    "cpf": 55544444,
+    "rg": "888.444-44X"
+}
+
+let clienteSchema = new Schema({
+    nome: {type: String , required: true    },
+    rg: {type: String , required: true    },
+    rua: {type: String , required: true    },
+    numero: {type: String , required: true    },
+    bairro: {type: String , required: true    },
+    cidade: {type: String , required: true    },
+    estado: {type: String , required: true    },
+    viagens: [
+        {
+        type: Schema.Types.ObjectId,
+        ref: 'viagem'
+        }
+    ]
+})
+
+# viagens
+[
+    {
+        "_id": "5fbed7c942382adc9842a53a",
+        "cidade": "Caldas Novas",
+        "data": "1970-01-01T06:08:22.020Z",
+        "preco": 500,
+        "__v": 0
+    }
+]
+
+
+
+let viagemSchema = new Schema({
+    cidade: {type: String , required: true    },
+    data: {type: String , required: true    },
+    preco: {type: Number , required: true    },
+    cliente: {type: Schema.Types.ObjectId, ref: 'cliente'    }
+})
+
+
+
+# user refs
+const UsuarioSchema = mongoose.Schema({
+    nome: {type: String,required: true },
+    cpf: {type: String, required: true,index: {unique: true }}, // Não deixa repetir CPF no cadastro
+    rg: String,
+    enderecos:[ {
+       type: Array,
+       itens: {
+          logradouro: String,
+          numero: Number,
+          bairro: String,
+          complemento: String,
+          cep: String,
+          cidade: String,
+          estado: String
+        }
+    }],
+    telefones: [{
+       type: Array,
+       itens: {
+          numero: String,
+          tipo: String
+        }
+    }],
+    data_nascimento: Date
+})
