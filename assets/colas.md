@@ -105,3 +105,21 @@ atualiza: async (req, res) => {
                 res.json(resultado)
             })
     }
+
+
+##
+    atualiza: async (req, res) => {
+        // pra decidir qual desses spread usar tem que qual versão 
+        // do ecma script a aplicação está usando 
+        // por estar usando arrow fuction acho que qualquer uma delas vai dar certo 
+        //const { trip } = req.body; 
+        const trip = { ...req.body }
+        // Como está pasando o trip o objeto todo, acredito que ele vai subtstituir
+        // mudando o que mudou e mantendo o que tinha tem que só ter cuidado pra ver 
+        // se o id não tá dentro do trip
+        Viagem.updateOne({ _id: req.params.id }, trip)
+            .then(resultado => {
+                console.log('Viagem Atualizada com Sucesso!')
+                res.json(resultado)
+            })
+    }

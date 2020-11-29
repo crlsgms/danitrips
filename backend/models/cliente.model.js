@@ -6,33 +6,17 @@ let Schema = mongoose.Schema;
 let Viagem = require('./viagem.model')
 
 let clienteSchema = new Schema({
-  nome: { type: String, required: true },
-  cpf: { type: Number, required: true, index: { unique: true } },
-  rg: { type: String },
-  enderecos: {
-    type: Array,
-    itens: {
-      logradouro: String,
-      numero: Number,
-      bairro: String,
-      complemento: String,
-      cep: String,
-      cidade: String,
-      estado: String
-    }
-  },
-  telefones: {
-    type: Array,
-    itens: {
-      numero: String,
-      tipo: String
-    }
-  },
-  viagens: [{// vetor com N viagens do cliente
-    type: Schema.Types.ObjectId,
-    ref: 'Viagem'
+  nome: {type: String , required: true},
+  rg: {type: String , required: true},
+  rua: {type: String , required: true},
+  numero: {type: String , required: true},
+  bairro: {type: String , required: true},
+  cidade: {type: String , required: true},
+  estado: {type: String , required: true},
+  viagens: [{
+      type: Schema.Types.ObjectId,
+      ref: 'viagem'
   }]
 })
 
-// vamos exportar o esquema para a utilização em outro arquivo
-module.exports = mongoose.model('Cliente', clienteSchema)
+module.exports = mongoose.model('cliente',clienteSchema)

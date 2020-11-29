@@ -9,8 +9,8 @@ let viagemSchema = new Schema({
   cidade: { type: String, required: true },
   data: { type: Date, required: true },
   preco: { type: Number, required: true },
-  cliente: { type: Schema.Types.ObjectId, ref: 'Cliente' }
+  cliente: { type: Schema.Types.ObjectId, ref: 'cliente' }
 })
 
 // vamos exportar o esquema para a utilização em outro arquivo
-module.exports = mongoose.model('Viagem', viagemSchema)
+module.exports = mongoose.model('viagem', viagemSchema)

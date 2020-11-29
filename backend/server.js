@@ -15,7 +15,8 @@ servidor.use(bodyParser.json())
 let mongoose = require('mongoose')
 // conecta no mongodb local
 // adicionei o createindex por conta do erro de deprecação no console
-mongoose.connect('mongodb://localhost/danitrips', {
+//mongoose.connect('mongodb://localhost/danitrips', {
+mongoose.connect('mongodb://localhost/danitour', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
@@ -26,16 +27,16 @@ let clienteController = require('./controllers/cliente.controller')
 let viagemController = require('./controllers/viagem.controller')
 
 // cria as rotas para o cliente
-servidor.get('/cliente/:id?', clienteController.consulta)
-servidor.post('/cliente', clienteController.insere)
-servidor.delete('/cliente/:id', clienteController.remove)
-servidor.put('/cliente/:id', clienteController.atualiza)
+servidor.get('/cliente/:id?',clienteController.consulta)
+servidor.post('/cliente',clienteController.insere)
+servidor.put('/cliente/:id',clienteController.atualiza)
+servidor.delete('/cliente/:id',clienteController.remove)
 
 // cria as rotas para a viagem
-servidor.get('/viagem/:id?', viagemController.consulta)
-servidor.post('/viagem', viagemController.insere)
-servidor.delete('/viagem/:id', viagemController.remove)
-servidor.put('/viagem/:id', viagemController.atualiza)
+servidor.get('/viagem/:id?',viagemController.consulta)
+servidor.post('/viagem',viagemController.insere)
+servidor.put('/viagem/:id',viagemController.atualiza)
+servidor.delete('/viagem/:id',viagemController.remove)
 
 // sobe o servidor
 servidor.listen(3003, () => {

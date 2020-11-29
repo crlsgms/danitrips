@@ -89,13 +89,55 @@ let clienteSchema = new Schema({
 # viagens
 [
     {
-        "_id": "5fbed7c942382adc9842a53a",
-        "cidade": "Caldas Novas",
-        "data": "1970-01-01T06:08:22.020Z",
-        "preco": 500,
-        "__v": 0
+      "_id": "5fc3efbdf0666c51be672ac4",
+      "cidade": "Caldas Novas",
+      "data": "2020-11-20T06:08:22.020Z",
+      "preco": 500,
+      "__v": 0
+    },
+    {
+      "_id": "5fc3efd0f0666c51be672ac5",
+      "cidade": "Guarujá",
+      "data": "2021-01-20T06:08:22.020Z",
+      "preco": 2500,
+      "__v": 0
+    },
+    {
+      "_id": "5fc3efe9f0666c51be672ac6",
+      "cidade": "Rifaina",
+      "data": "2020-12-23T06:08:22.020Z",
+      "preco": 850,
+      "__v": 0
     }
-]
+  ]
+
+  # clientes
+  [
+    {
+      "viagens": [],
+      "_id": "5fc3f099f0666c51be672ac7",
+      "nome": "Maria Siqueira Campos",
+      "rg": "888.444-44X",
+      "rua": "Rua Major Sertório",
+      "numero": "1332",
+      "bairro": "Jardim Luiza",
+      "cidade": "Barretps",
+      "estado": "SP",
+      "__v": 0
+    },
+    {
+      "viagens": [],
+      "_id": "5fc3f0e6f0666c51be672ac8",
+      "nome": "José das Couves",
+      "rg": "154868x",
+      "rua": "Rua Direita",
+      "numero": "133",
+      "bairro": "Mooca",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "__v": 0
+    }
+  ]
 
 
 
